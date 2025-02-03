@@ -1,0 +1,190 @@
+<html class="hydrated"><head>
+    <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bulma css template -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- model viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <title>
+      LGM
+    </title>
+    <link rel="icon" href="icon.ico">
+  <style id="highlight-mengshou-style">
+      .highlight-mengshou-wrap {
+          background: #ff9;
+          cursor: pointer;
+      }
+      .highlight-mengshou-wrap.active {
+          background: #ffb;
+      }
+  </style></head>
+  <body>
+    <section class="section">
+  
+    <div class="container has-text-centered">
+      <!-- paper title -->
+      <p class="title is-3"> LGM: Large Multi-View Gaussian Model for High-Resolution 3D Content Creation </p>
+      <!-- publication -->
+      <p class="subtitle is-4"> ECCV 2024 (Oral) </p>
+      <!-- authors -->
+      <p class="title is-5 mt-2"> 
+        <a href="https://me.kiui.moe/" target="_blank">Jiaxiang Tang</a><sup>1</sup>, 
+        <a href="https://frozenburning.github.io/" target="_blank">Zhaoxi Chen</a><sup>2</sup>, 
+        <a href="https://charlescxk.github.io/" target="_blank">Xiaokang Chen</a><sup>1</sup>, 
+        <a href="https://tengfei-wang.github.io/" target="_blank">Tengfei Wang</a><sup>3</sup>, 
+        <a href="http://www.cis.pku.edu.cn/info/1177/1378.htm" target="_blank">Gang Zeng</a><sup>1</sup>,
+        <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>2</sup>
+      </p>
+      <!-- affiliations -->
+      <p class="subtitle is-5"> 
+        <sup>1</sup> Peking University &nbsp;
+        <sup>2</sup> S-Lab, Nanyang Technological University &nbsp;
+        <sup>3</sup> Shanghai AI Lab &nbsp;
+      </p>
+  
+      <!-- other links -->
+      <div class="is-flex is-justify-content-center">
+        <span class="icon-text mx-1">
+          <a class="button is-dark" href="https://arxiv.org/abs/2402.05054" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-outline" role="img" class="md hydrated"></ion-icon> </span> <span> Arxiv </span>  </a> 
+        </span>
+        <span class="icon-text mx-1">
+          <a class="button is-dark" href="https://github.com/3DTopia/LGM" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github" role="img" class="md hydrated"></ion-icon> </span> <span> Code </span> </a> 
+        </span>
+        <span class="icon-text mx-1">
+          <a class="button is-dark" href="https://huggingface.co/spaces/ashawkey/LGM" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-apple-ar" role="img" class="md hydrated"></ion-icon> </span> <span> Demo </span> </a> 
+        </span>
+      </div>
+     
+    </div>
+  
+    <!-- main container -->
+    <div class="container is-max-desktop has-text-centered">
+  
+      <!-- abstract -->
+      <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+      <p class="content is-size-6 has-text-left">
+        3D content creation has achieved significant progress in terms of both quality and speed. 
+        Although current feed-forward models can produce 3D objects in seconds, their resolution is constrained by the intensive computation required during training. 
+        In this paper, we introduce <b>Large Multi-view Gaussian Model (LGM)</b>, a novel framework designed to generate high-resolution 3D models from text prompts or single-view images. 
+        Our key insights are two-fold: <b>(1) 3D Representation:</b> We propose multi-view Gaussian features as an efficient yet powerful representation, which can then be fused together for differentiable rendering. 
+        <b>(2) 3D Backbone:</b> We present an asymmetric U-Net as a high-throughput backbone operating on multi-view images, which can be produced from text or single-view image input by leveraging multi-view diffusion models. 
+        Extensive experiments demonstrate the high fidelity and efficiency of our approach. 
+        Notably, we maintain the fast speed to generate 3D objects within <b>5 seconds</b> while boosting the training resolution to 512, thereby achieving high-resolution 3D content generation.
+      </p>
+  
+      <!-- methods -->
+      <p class="title is-3 mt-5 has-text-centered"> Pipeline </p>
+      <img src="images/pipeline.jpg" style="width: 100%; height: auto;">
+      
+      <p class="title is-3 mt-5 has-text-centered"> Architecture </p>
+      <img src="images/arch.jpg" style="width: 100%; height: auto;">
+      
+      <!-- results (videos) -->
+     
+      <p class="title is-3 mt-5 has-text-centered"> Image-to-3D </p>
+      <video muted="" autoplay="" loop=""> <source src="videos/demo.mp4" type="video/mp4"> </video>
+  
+      <p class="title is-3 mt-5 has-text-centered"> Text-to-3D </p>
+      <video muted="" autoplay="" loop=""> <source src="videos/text.mp4" type="video/mp4"> </video>
+  
+      <p class="title is-3 mt-5 has-text-centered"> Diversity </p>
+      <video muted="" autoplay="" loop=""> <source src="videos/diversity.mp4" type="video/mp4"> </video>
+  
+      
+      <!-- 3d model viewer -->
+      <p class="title is-3 mt-5 has-text-centered"> Exported Meshes </p>
+      <div class="level">
+        <div class="level-item">
+          <model-viewer src="meshes/catstatue_rgba.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="meshes/dwarf_rgba.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="meshes/frog_sweater_rgba.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="meshes/giraffe1_rgba.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-item">
+          <model-viewer src="meshes/toy2.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="mesh.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="meshes/ikun.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+        <div class="level-item">
+          <model-viewer src="meshes/man_head_rgba.glb" style="width: 100%; height: 300px;" auto-rotate="" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting"></model-viewer>
+        </div>
+      </div>
+      
+      <!-- citation -->
+      <div class="card mt-4">
+        <header class="card-header">
+          <p class="card-header-title"> Citation </p>
+        </header>
+        <div class="card-content is-size-5 has-text-left">
+  <pre><code>@article{tang2024lgm,
+    title={LGM: Large Multi-View Gaussian Model for High-Resolution 3D Content Creation},
+    author={Tang, Jiaxiang and Chen, Zhaoxi and Chen, Xiaokang and Wang, Tengfei and Zeng, Gang and Liu, Ziwei},
+    journal={arXiv preprint arXiv:2402.05054},
+    year={2024}
+  }</code></pre>
+        </div>
+      </div>
+    </div>
+  
+  
+    </section>
+  
+  
+  <style id="web-highlights-global-style-variables">:root { --wh-slate-50: #f8fafc;--wh-slate-100: #f1f5f9;--wh-slate-200: #e2e8f0;--wh-slate-300: #cbd5e1;--wh-slate-400: #94a3b8;--wh-slate-500: #64748b;--wh-slate-600: #475569;--wh-slate-700: #334155;--wh-slate-800: #1e293b;--wh-slate-900: #0f172a;--wh-slate-950: #020617;--wh-primary-50: rgb(187, 219, 204);--wh-primary-100: rgb(153, 208, 184);--wh-primary-200: rgb(120, 197, 164);--wh-primary-300: rgb(86, 186, 144);--wh-primary-400: rgb(53, 176, 125);--wh-primary-500: hsl(161, 100%, 35%);--wh-primary-600: hsl(161, 100%, 33%);--wh-primary-700: hsl(161, 100%, 31%);--wh-primary-800: hsl(161, 100%, 29%);--wh-primary-900: hsl(161, 100%, 25%);--wh-primary-950: hsl(161, 100%, 20%);--wh-secondary-50: hsl(218, 22%, 30%);--wh-secondary-100: hsl(218, 22%, 27%);--wh-secondary-200: hsl(218, 22%, 25%);--wh-secondary-300: hsl(218, 22%, 22%);--wh-secondary-400: hsl(218, 22%, 20%);--wh-secondary-500: hsl(218, 22%, 18%);--wh-secondary-600: hsl(218, 22%, 16%);--wh-secondary-700: hsl(218, 22%, 14%);--wh-secondary-800: hsl(218, 22%, 12%);--wh-secondary-900: hsl(218, 22%, 8%);--wh-secondary-950: hsl(218, 22%, 6%);--wh-gray-50: #f9fafb;--wh-gray-100: #f3f4f6;--wh-gray-200: #e5e7eb;--wh-gray-300: #d1d5db;--wh-gray-400: #9ca3af;--wh-gray-500: #6b7280;--wh-gray-600: #4b5563;--wh-gray-700: #374151;--wh-gray-800: #1f2937;--wh-gray-900: #111827;--wh-gray-950: #030712;--wh-zinc-50: #fafafa;--wh-zinc-100: #f4f4f5;--wh-zinc-200: #e4e4e7;--wh-zinc-300: #d4d4d8;--wh-zinc-400: #a1a1aa;--wh-zinc-500: #71717a;--wh-zinc-600: #52525b;--wh-zinc-700: #3f3f46;--wh-zinc-800: #27272a;--wh-zinc-900: #18181b;--wh-zinc-950: #09090b;--wh-neutral-50: #fafafa;--wh-neutral-100: #f5f5f5;--wh-neutral-200: #e5e5e5;--wh-neutral-300: #d4d4d4;--wh-neutral-400: #a3a3a3;--wh-neutral-500: #737373;--wh-neutral-600: #525252;--wh-neutral-700: #404040;--wh-neutral-800: #262626;--wh-neutral-900: #171717;--wh-neutral-950: #0a0a0a;--wh-stone-50: #fafaf9;--wh-stone-100: #f5f5f4;--wh-stone-200: #e7e5e4;--wh-stone-300: #d6d3d1;--wh-stone-400: #a8a29e;--wh-stone-500: #78716c;--wh-stone-600: #57534e;--wh-stone-700: #44403c;--wh-stone-800: #292524;--wh-stone-900: #1c1917;--wh-stone-950: #0c0a09;--wh-red-50: #fef2f2;--wh-red-100: #fee2e2;--wh-red-200: #fecaca;--wh-red-300: #fca5a5;--wh-red-400: #f87171;--wh-red-500: #ef4444;--wh-red-600: #dc2626;--wh-red-700: #b91c1c;--wh-red-800: #991b1b;--wh-red-900: #7f1d1d;--wh-red-950: #450a0a;--wh-orange-50: #fff7ed;--wh-orange-100: #ffedd5;--wh-orange-200: #fed7aa;--wh-orange-300: #fdba74;--wh-orange-400: #fb923c;--wh-orange-500: #f97316;--wh-orange-600: #ea580c;--wh-orange-700: #c2410c;--wh-orange-800: #9a3412;--wh-orange-900: #7c2d12;--wh-orange-950: #431407;--wh-amber-50: #fffbeb;--wh-amber-100: #fef3c7;--wh-amber-200: #fde68a;--wh-amber-300: #fcd34d;--wh-amber-400: #fbbf24;--wh-amber-500: #f59e0b;--wh-amber-600: #d97706;--wh-amber-700: #b45309;--wh-amber-800: #92400e;--wh-amber-900: #78350f;--wh-amber-950: #451a03;--wh-yellow-50: #fefce8;--wh-yellow-100: #fef9c3;--wh-yellow-200: #fef08a;--wh-yellow-300: #fde047;--wh-yellow-400: #facc15;--wh-yellow-500: #eab308;--wh-yellow-600: #ca8a04;--wh-yellow-700: #a16207;--wh-yellow-800: #854d0e;--wh-yellow-900: #713f12;--wh-yellow-950: #422006;--wh-lime-50: #f7fee7;--wh-lime-100: #ecfccb;--wh-lime-200: #d9f99d;--wh-lime-300: #bef264;--wh-lime-400: #a3e635;--wh-lime-500: #84cc16;--wh-lime-600: #65a30d;--wh-lime-700: #4d7c0f;--wh-lime-800: #3f6212;--wh-lime-900: #365314;--wh-lime-950: #1a2e05;--wh-green-50: #f0fdf4;--wh-green-100: #dcfce7;--wh-green-200: #bbf7d0;--wh-green-300: #86efac;--wh-green-400: #4ade80;--wh-green-500: #22c55e;--wh-green-600: #16a34a;--wh-green-700: #15803d;--wh-green-800: #166534;--wh-green-900: #14532d;--wh-green-950: #052e16;--wh-emerald-50: #ecfdf5;--wh-emerald-100: #d1fae5;--wh-emerald-200: #a7f3d0;--wh-emerald-300: #6ee7b7;--wh-emerald-400: #34d399;--wh-emerald-500: #10b981;--wh-emerald-600: #059669;--wh-emerald-700: #047857;--wh-emerald-800: #065f46;--wh-emerald-900: #064e3b;--wh-emerald-950: #022c22;--wh-teal-50: #f0fdfa;--wh-teal-100: #ccfbf1;--wh-teal-200: #99f6e4;--wh-teal-300: #5eead4;--wh-teal-400: #2dd4bf;--wh-teal-500: #14b8a6;--wh-teal-600: #0d9488;--wh-teal-700: #0f766e;--wh-teal-800: #115e59;--wh-teal-900: #134e4a;--wh-teal-950: #042f2e;--wh-cyan-50: #ecfeff;--wh-cyan-100: #cffafe;--wh-cyan-200: #a5f3fc;--wh-cyan-300: #67e8f9;--wh-cyan-400: #22d3ee;--wh-cyan-500: #06b6d4;--wh-cyan-600: #0891b2;--wh-cyan-700: #0e7490;--wh-cyan-800: #155e75;--wh-cyan-900: #164e63;--wh-cyan-950: #083344;--wh-sky-50: #f0f9ff;--wh-sky-100: #e0f2fe;--wh-sky-200: #bae6fd;--wh-sky-300: #7dd3fc;--wh-sky-400: #38bdf8;--wh-sky-500: #0ea5e9;--wh-sky-600: #0284c7;--wh-sky-700: #0369a1;--wh-sky-800: #075985;--wh-sky-900: #0c4a6e;--wh-sky-950: #082f49;--wh-blue-50: #eff6ff;--wh-blue-100: #dbeafe;--wh-blue-200: #bfdbfe;--wh-blue-300: #93c5fd;--wh-blue-400: #60a5fa;--wh-blue-500: #3b82f6;--wh-blue-600: #2563eb;--wh-blue-700: #1d4ed8;--wh-blue-800: #1e40af;--wh-blue-900: #1e3a8a;--wh-blue-950: #172554;--wh-indigo-50: #eef2ff;--wh-indigo-100: #e0e7ff;--wh-indigo-200: #c7d2fe;--wh-indigo-300: #a5b4fc;--wh-indigo-400: #818cf8;--wh-indigo-500: #6366f1;--wh-indigo-600: #4f46e5;--wh-indigo-700: #4338ca;--wh-indigo-800: #3730a3;--wh-indigo-900: #312e81;--wh-indigo-950: #1e1b4b;--wh-violet-50: #f5f3ff;--wh-violet-100: #ede9fe;--wh-violet-200: #ddd6fe;--wh-violet-300: #c4b5fd;--wh-violet-400: #a78bfa;--wh-violet-500: #8b5cf6;--wh-violet-600: #7c3aed;--wh-violet-700: #6d28d9;--wh-violet-800: #5b21b6;--wh-violet-900: #4c1d95;--wh-violet-950: #2e1065;--wh-purple-50: #faf5ff;--wh-purple-100: #f3e8ff;--wh-purple-200: #e9d5ff;--wh-purple-300: #d8b4fe;--wh-purple-400: #c084fc;--wh-purple-500: #a855f7;--wh-purple-600: #9333ea;--wh-purple-700: #7e22ce;--wh-purple-800: #6b21a8;--wh-purple-900: #581c87;--wh-purple-950: #3b0764;--wh-fuchsia-50: #fdf4ff;--wh-fuchsia-100: #fae8ff;--wh-fuchsia-200: #f5d0fe;--wh-fuchsia-300: #f0abfc;--wh-fuchsia-400: #e879f9;--wh-fuchsia-500: #d946ef;--wh-fuchsia-600: #c026d3;--wh-fuchsia-700: #a21caf;--wh-fuchsia-800: #86198f;--wh-fuchsia-900: #701a75;--wh-fuchsia-950: #4a044e;--wh-pink-50: #fdf2f8;--wh-pink-100: #fce7f3;--wh-pink-200: #fbcfe8;--wh-pink-300: #f9a8d4;--wh-pink-400: #f472b6;--wh-pink-500: #ec4899;--wh-pink-600: #db2777;--wh-pink-700: #be185d;--wh-pink-800: #9d174d;--wh-pink-900: #831843;--wh-pink-950: #500724;--wh-rose-50: #fff1f2;--wh-rose-100: #ffe4e6;--wh-rose-200: #fecdd3;--wh-rose-300: #fda4af;--wh-rose-400: #fb7185;--wh-rose-500: #f43f5e;--wh-rose-600: #e11d48;--wh-rose-700: #be123c;--wh-rose-800: #9f1239;--wh-rose-900: #881337;--wh-rose-950: #4c0519;--wh-primary-color: var(--wh-primary-500);--wh-primary-color-hover: #00a16e;--wh-primary-color-transparent: #00aa7424;--wh-primary-color-transparent-light: #00a8730f;--wh-primary-light: #53e3a6;--wh-primary-dark: #007f4b;--wh-primary-dark-hover: #017444;--wh-primary-shadow: #00b07841;--wh-primary-shadow-2: #00b07870;--wh-primary-border-color: #c8c8c870;--wh-warning-color: #ff5a1f;--wh-warning-color-light: #feecdc;--secondary-color: #3d4455;--secondary-color-hover: #3a4052;--secondary-color-transparent: #3d44556b;--secondary-light: #4c556d;--secondary-dark: #252934;--secondary-dark-hover: #191b22;--secondary-dark-transparent: #2e2d2d46;--highlight-color: #92ffaa;--error-color: #d62d4c;--error-color-light: #fde8e8;--error-info: #14854e;--success-color: #0e9f6e;--success-color-light: #def7ec;--font-color: #2f3237;--font-color-light: #626364;--font-color-dark: #252525;--wh-font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'Open Sans', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;--font-family: var(--wh-font-family);--font-size: 12px;--webhighlights-font-size: 12px;--link-color: #1d9bf0;--wh-form-active-color: #3b82f6;--wh-accent-blue: #1f6feb;--wh-mobile-breakpoint: 767px;--BREAKPOINT_XS: 575px;--BREAKPOINT_S: 767px;--BREAKPOINT_M: 991px;--BREAKPOINT_L: 1199px;--BREAKPOINT_XL: 1399px;--BREAKPOINT_XXL: 1699px;--wh-danger-color: var(--wh-red-600);--wh-danger-color-hover: var(--wh-red-700);--wh-font-size: 13px;--wh-blockquote-line-height: 1.3;--wh-bg-base: var(--wh-secondary-600);--wh-bg-base-hover: var(--wh-secondary-500);--wh-border-base: var(--wh-secondary-200);--wh-border-base-hover: var(--wh-secondary-100);--wh-border-base-strong: var(--wh-secondary-100);--wh-border-base-strong-hover: var(--wh-secondary-50);--wh-bg-base-hover-strong: var(--wh-secondary-300);--wh-bg-back: var(--wh-secondary-700);--wh-bg-back-strong: var(--wh-secondary-800);--wh-bg-back-strong-hover: var(--wh-secondary-900);--wh-bg-back-hover: var(--wh-secondary-600);--wh-bg-back-hover-strong: var(--wh-secondary-800);--wh-border-back: var(--wh-secondary-100);--wh-border-back-strong: var(--wh-secondary-50);--wh-bg-front: var(--wh-secondary-400);--wh-bg-front-strong: var(--wh-secondary-200);--wh-bg-front-strong-hover: var(--wh-secondary-100);--wh-bg-front-hover: var(--wh-secondary-300);--wh-bg-front-hover-strong: var(--wh-secondary-200);--wh-border-front: hsl(227, 20%, 25%);--wh-border-front-strong: hsl(227, 20%, 35%);--wh-text-stronger: hsla(0, 0%, 100%, 0.95);--wh-text-strongest: hsla(0, 0%, 100%, 1);--wh-text-strong: rgba(255, 255, 255, 0.9);--wh-text: rgba(255, 255, 255, 0.85);--wh-text-hover: var(--wh-text-strong);--wh-text-light: rgba(255, 255, 255, 0.73);--wh-text-lighter: rgba(255, 255, 255, 0.63);--wh-text-lightest: rgba(255, 255, 255, 0.5);--wh-border-color: hsla(0, 0%, 100%, 0.15);--wh-border-color-strong: hsla(0, 0%, 100%, 0.25);--wh-note-editor-bg-color: hsl(221, 27%, 20%);--wh-note-editor-bg-color-preview: hsl(221, 27%, 18%);--wh-bg-tags: var(--wh-secondary-300);--wh-bg-tags-hover: var(--wh-secondary-200);--wh-syntax-bg-color: rgba(255, 255, 255, 0.05);--wh-fallback-img-color: var(--wh-secondary-600);--wh-bg-disabled: hsl(220, 22%, 18%);--wh-bg-notification-unread: hsla(161, 100%, 20%, 0.15);--wh-bg-notification-unread-hover: hsla(161, 100%, 20%, 0.05);--wh-subtle-gray: rgb(255, 255, 255, 0.1);--wh-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+        /* 2. shadow ring 👇 */ 0 0 0 1px hsla(230, 13%, 9%, 0.075),
+        /* 3. multiple soft shadows 👇 */ 0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+        0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+        0 3.5px 6px hsla(230, 13%, 9%, 0.09);--wh-shadow-primary: var(--wh-primary-500) 0px 0px 0px 1px inset,
+        var(--wh-primary-500) 0px 0px 1px; }</style><div id="webhighlights-notifications"></div><style id="web-highlights-global-styles">
+    webhighlights-sidebar {
+      --webhighlights-font-size: 13.5px;
+    }
+  
+    body.web-highlights-animate {
+      transition: all 300ms linear;
+      transition-property: margin-left, margin-right;
+    }
+  
+    body.web-highlights-open {
+      margin-left: 400px !important;
+    }
+  
+    web-highlight.webhighlights-highlight {
+      border-radius: 2px;
+      background-color: #92ffaa;
+      cursor: pointer;
+      visibility: visible !important;
+    }
+  
+    web-highlight.webhighlights-highlight.webhighlight-with-tags,
+    web-highlight.webhighlights-highlight.webhighlight-with-notes {
+      border-bottom: 2.8px solid gray;
+      border-radius: 0px;
+    }
+  
+    web-highlight > *:not(webhighlights-popup-toolbox) {
+      background-color: #92ffaa;
+    }
+  
+    webhighlights-popup-toolbox.contains-highlight {
+      transform: translate(-63px, -10px);
+      position: fixed;
+    }
+  </style><webhighlights-popup-toolbox></webhighlights-popup-toolbox><webhighlights-marker></webhighlights-marker></body><webhighlights-sidebar alignment="left" sidebar-width="400"></webhighlights-sidebar></html>
